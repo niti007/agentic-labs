@@ -1,0 +1,39 @@
+# Lab 3.3 (optional) - headless Claude Code in CI.
+# Runs the test suite, then runs Claude Code in headless (-p) mode to review the
+# diff and emit STRUCTURED JSON, which a downstream step parses into a pass/fail gate.
+name: ci-review
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-and-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run tests
+        working-directory: agentic-labs/module3_claudecode/lab3_3_tdd_ci
+        run: |
+          pip install pytest
+          python -m pytest -q
+
+      # Headless Claude Code: -p runs one prompt non-interactively.
+      # --output-format json emits a machine-readable result for the gate.
+      - name: Claude review (headless, JSON out)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude -p "Review the diff in this PR. Reply with a JSON object \
+            {\"verdict\": \"pass\"|\"fail\", \"issues\": [\"...\"]}." \
+            --output-format json > review.json
+          cat review.json
+
+      - name: Parse review into pass/fail gate
+        run: python agentic-labs/module3_claudecode/lab3_3_tdd_ci/parse_output.py review.json

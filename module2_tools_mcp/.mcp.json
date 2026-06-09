@@ -1,0 +1,13 @@
+{
+  "_comment": "Lab 2.2 - multi-source MCP setup. Copy this to the repo ROOT (agentic-labs/.mcp.json) so Claude Code auto-loads it when you open the folder. 'demo-db-docs' is our local Python server; 'filesystem' is a second source to show multi-server wiring.",
+  "mcpServers": {
+    "demo-db-docs": {
+      "command": "py",
+      "args": ["module2_tools_mcp/lab2_2_mcp_server.py"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    }
+  }
+}
