@@ -9,4 +9,5 @@ __pycache__/
 **/.claude/hooks/write-audit.log
 module1_agentic/lab1_2_claude_native/output/*.txt
 **/review.json
+module3_claudecode/lab3_1_claude_native/docs/
 .pytest_cache/

@@ -1,0 +1,9 @@
+{
+  "_comment": "Lab 4.2 native. Launch `claude` from THIS folder so this .mcp.json auto-loads; approve the 'scoring' tool when prompted. It gives Claude one 'form' tool, record_score, that forces and checks the {name, score, reason} shape.",
+  "mcpServers": {
+    "scoring": {
+      "command": "py",
+      "args": ["lead_scoring_server.py"]
+    }
+  }
+}

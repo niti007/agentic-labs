@@ -15,7 +15,6 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    """Divide a by b. Must raise ValueError on divide-by-zero."""
     if b == 0:
         raise ValueError("cannot divide by zero")
     return a / b

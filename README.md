@@ -4,6 +4,8 @@ Hands-on demos for a laptop walkthrough of:
 - **Module 1** — Agentic Architecture & Orchestration
 - **Module 2** — Tool Design & MCP Integration
 - **Module 3** — Claude Code Configuration & Workflows
+- **Module 4** — Precision Prompting (plain-English, no code)
+- **Module 5** — Context Management & Reliability (plain-English)
 
 Every lab is a **self-contained folder you open in Claude Code** and drive live — the
 three concepts are demonstrated with Claude Code's *own* features (the agentic loop,
@@ -120,6 +122,58 @@ In `module3_claudecode/lab3_3_claude_native/`; follow `RUNBOOK.md`.
 
 ---
 
+## Module 4 — Precision Prompting (plain-English, no code)
+
+### Lab 4.1 — Explicit criteria & few-shot consistency *(mandatory)*
+The only no-code lab — about *how you word a request* so the AI is sharp and consistent.
+Running example: **sorting customer feedback by urgency**. Open
+`module4_prompting/lab4_1_claude_native/`; follow `RUNBOOK.md`.
+- **Demo V (explicit criteria):** vague "flag the urgent ones" guesses and over-flags;
+  giving it written rules (`criteria.md`) cuts the false alarms.
+- **Demo W (few-shot):** without examples the format wobbles; three worked examples
+  (`examples.md`) lock the one-line format and calm tone.
+- **Demo X (generalize):** it handles tricky messages it was never shown (a privacy slip, a
+  sarcastic "compliment") the way the rules imply.
+
+### Lab 4.2 — Enforcing structure: forms, validation & retry *(mandatory)*
+Make the AI **fill a form, not write an essay**, so answers are clean data you can trust.
+Running example: **scoring sales leads** 0-10. Launch `claude` from
+`module4_prompting/lab4_2_claude_native/` (approve the `scoring` tool); follow `RUNBOOK.md`.
+- **Demo Y (force a form):** the `record_score` tool makes every answer come back as
+  `{name, score, reason}` instead of prose.
+- **Demo Z (validation):** a score of 15, "high", or a blank reason gets bounced at the
+  door — bad data never lands.
+- **Demo AA (self-correct):** when bounced, the AI reads the error and fixes its own answer
+  until it's valid.
+
+---
+
+## Module 5 — Context Management & Reliability (plain-English)
+
+### Lab 5.1 — Managing context: pin facts, trim data, ask don't guess *(mandatory)*
+Stay sharp over a long conversation. Running example: **one customer's support case**. Open
+`module5_context/lab5_1_claude_native/`; follow `RUNBOOK.md`.
+- **Demo BB (pin facts):** key details (the order ID) are written to a `case_file.md` sticky
+  note, so they survive a long detour.
+- **Demo CC (trim data):** a targeted question over a 500-row file returns only the few
+  fields needed — not the whole table.
+- **Demo DD (ask, don't guess):** with two orders on file, "cancel my order" makes it ask
+  *which one* instead of guessing.
+
+### Lab 5.2 — Resilient systems: loud failures, notes, recovery *(mandatory)*
+Be dependable on big, long jobs. Running example: a **big unfamiliar project** (`bigapp/`).
+Open `module5_context/lab5_2_claude_native/`; follow `RUNBOOK.md`.
+- **Demo EE (surface failures):** a `checker` helper reports a broken config as **FAILED**,
+  and the coordinator surfaces it instead of silently continuing.
+- **Demo FF (scratchpad):** while mapping `bigapp/`, findings accumulate in `scratchpad.md`
+  so nothing's lost.
+- **Demo GG (save & recover, *terminal*):** `/compact` shrinks a long session; `claude
+  --continue` recovers it after a crash.
+
+---
+
 ## Suggested demo order (mandatory labs first)
 1. **Lab 1.1** (A→B→C) → 2. **Lab 2.1** (G→H→I) → 3. **Lab 3.1** (M→N→O) →
-4. **Lab 3.2** (P→Q→R). Then add the optional labs (1.2, 2.2, 3.3) as time allows.
+4. **Lab 3.2** (P→Q→R) → 5. **Lab 4.1** (V→W→X) → 6. **Lab 4.2** (Y→Z→AA) →
+7. **Lab 5.1** (BB→CC→DD) → 8. **Lab 5.2** (EE→FF→GG). Then add the optional labs
+(1.2, 2.2, 3.3) as time allows.

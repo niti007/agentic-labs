@@ -1,0 +1,501 @@
+order_id,customer,email,order_date,item,qty,amount,status
+A-3001,Maria Lopez,maria.lopez@example.com,2026-05-02,Standing desk,1,420.00,delivered
+A-3002,Maria Lopez,maria.lopez@example.com,2026-06-01,Desk lamp,1,39.00,shipped
+B-0001,Asha Rao,user1@example.com,2026-02-02,Keyboard,2,17.01,shipped
+B-0002,Liam Chen,user2@example.com,2026-03-03,Monitor stand,3,24.02,processing
+B-0003,Sara Kim,user3@example.com,2026-04-04,USB-C hub,1,31.03,cancelled
+B-0004,Tom Diaz,user4@example.com,2026-05-05,Webcam,2,38.04,refunded
+B-0005,Nina Patel,user5@example.com,2026-06-06,Headset,3,45.05,delivered
+B-0006,Omar Said,user6@example.com,2026-01-07,Notebook,1,52.06,shipped
+B-0007,Eva Wong,user7@example.com,2026-02-08,Pen set,2,59.07,processing
+B-0008,Raj Mehta,user8@example.com,2026-03-09,Desk mat,3,66.08,cancelled
+B-0009,Lucy Ford,user9@example.com,2026-04-10,Laptop sleeve,1,73.09,refunded
+B-0010,John Park,user10@example.com,2026-05-11,Wireless mouse,2,80.10,delivered
+B-0011,Asha Rao,user11@example.com,2026-06-12,Keyboard,3,87.11,shipped
+B-0012,Liam Chen,user12@example.com,2026-01-13,Monitor stand,1,94.12,processing
+B-0013,Sara Kim,user13@example.com,2026-02-14,USB-C hub,2,101.13,cancelled
+B-0014,Tom Diaz,user14@example.com,2026-03-15,Webcam,3,108.14,refunded
+B-0015,Nina Patel,user15@example.com,2026-04-16,Headset,1,115.15,delivered
+B-0016,Omar Said,user16@example.com,2026-05-17,Notebook,2,122.16,shipped
+B-0017,Eva Wong,user17@example.com,2026-06-18,Pen set,3,129.17,processing
+B-0018,Raj Mehta,user18@example.com,2026-01-19,Desk mat,1,136.18,cancelled
+B-0019,Lucy Ford,user19@example.com,2026-02-20,Laptop sleeve,2,143.19,refunded
+B-0020,John Park,user20@example.com,2026-03-21,Wireless mouse,3,150.20,delivered
+B-0021,Asha Rao,user21@example.com,2026-04-22,Keyboard,1,157.21,shipped
+B-0022,Liam Chen,user22@example.com,2026-05-23,Monitor stand,2,164.22,processing
+B-0023,Sara Kim,user23@example.com,2026-06-24,USB-C hub,3,171.23,cancelled
+B-0024,Tom Diaz,user24@example.com,2026-01-25,Webcam,1,178.24,refunded
+B-0025,Nina Patel,user25@example.com,2026-02-26,Headset,2,185.25,delivered
+B-0026,Omar Said,user26@example.com,2026-03-27,Notebook,3,192.26,shipped
+B-0027,Eva Wong,user27@example.com,2026-04-01,Pen set,1,199.27,processing
+B-0028,Raj Mehta,user28@example.com,2026-05-02,Desk mat,2,206.28,cancelled
+B-0029,Lucy Ford,user29@example.com,2026-06-03,Laptop sleeve,3,213.29,refunded
+B-0030,John Park,user30@example.com,2026-01-04,Wireless mouse,1,220.30,delivered
+B-0031,Asha Rao,user31@example.com,2026-02-05,Keyboard,2,227.31,shipped
+B-0032,Liam Chen,user32@example.com,2026-03-06,Monitor stand,3,234.32,processing
+B-0033,Sara Kim,user33@example.com,2026-04-07,USB-C hub,1,241.33,cancelled
+B-0034,Tom Diaz,user34@example.com,2026-05-08,Webcam,2,248.34,refunded
+B-0035,Nina Patel,user35@example.com,2026-06-09,Headset,3,255.35,delivered
+B-0036,Omar Said,user36@example.com,2026-01-10,Notebook,1,262.36,shipped
+B-0037,Eva Wong,user37@example.com,2026-02-11,Pen set,2,269.37,processing
+B-0038,Raj Mehta,user38@example.com,2026-03-12,Desk mat,3,276.38,cancelled
+B-0039,Lucy Ford,user39@example.com,2026-04-13,Laptop sleeve,1,283.39,refunded
+B-0040,John Park,user40@example.com,2026-05-14,Wireless mouse,2,290.40,delivered
+B-0041,Asha Rao,user41@example.com,2026-06-15,Keyboard,3,297.41,shipped
+B-0042,Liam Chen,user42@example.com,2026-01-16,Monitor stand,1,304.42,processing
+B-0043,Sara Kim,user43@example.com,2026-02-17,USB-C hub,2,311.43,cancelled
+B-0044,Tom Diaz,user44@example.com,2026-03-18,Webcam,3,318.44,refunded
+B-0045,Nina Patel,user45@example.com,2026-04-19,Headset,1,325.45,delivered
+B-0046,Omar Said,user46@example.com,2026-05-20,Notebook,2,332.46,shipped
+B-0047,Eva Wong,user47@example.com,2026-06-21,Pen set,3,339.47,processing
+B-0048,Raj Mehta,user48@example.com,2026-01-22,Desk mat,1,346.48,cancelled
+B-0049,Lucy Ford,user49@example.com,2026-02-23,Laptop sleeve,2,353.49,refunded
+B-0050,John Park,user50@example.com,2026-03-24,Wireless mouse,3,360.50,delivered
+B-0051,Asha Rao,user51@example.com,2026-04-25,Keyboard,1,367.51,shipped
+B-0052,Liam Chen,user52@example.com,2026-05-26,Monitor stand,2,374.52,processing
+B-0053,Sara Kim,user53@example.com,2026-06-27,USB-C hub,3,381.53,cancelled
+B-0054,Tom Diaz,user54@example.com,2026-01-01,Webcam,1,388.54,refunded
+B-0055,Nina Patel,user55@example.com,2026-02-02,Headset,2,395.55,delivered
+B-0056,Omar Said,user56@example.com,2026-03-03,Notebook,3,402.56,shipped
+B-0057,Eva Wong,user57@example.com,2026-04-04,Pen set,1,409.57,processing
+B-0058,Raj Mehta,user58@example.com,2026-05-05,Desk mat,2,416.58,cancelled
+B-0059,Lucy Ford,user59@example.com,2026-06-06,Laptop sleeve,3,423.59,refunded
+B-0060,John Park,user60@example.com,2026-01-07,Wireless mouse,1,430.60,delivered
+B-0061,Asha Rao,user61@example.com,2026-02-08,Keyboard,2,437.61,shipped
+B-0062,Liam Chen,user62@example.com,2026-03-09,Monitor stand,3,444.62,processing
+B-0063,Sara Kim,user63@example.com,2026-04-10,USB-C hub,1,451.63,cancelled
+B-0064,Tom Diaz,user64@example.com,2026-05-11,Webcam,2,458.64,refunded
+B-0065,Nina Patel,user65@example.com,2026-06-12,Headset,3,465.65,delivered
+B-0066,Omar Said,user66@example.com,2026-01-13,Notebook,1,472.66,shipped
+B-0067,Eva Wong,user67@example.com,2026-02-14,Pen set,2,479.67,processing
+B-0068,Raj Mehta,user68@example.com,2026-03-15,Desk mat,3,486.68,cancelled
+B-0069,Lucy Ford,user69@example.com,2026-04-16,Laptop sleeve,1,493.69,refunded
+B-0070,John Park,user70@example.com,2026-05-17,Wireless mouse,2,500.70,delivered
+B-0071,Asha Rao,user71@example.com,2026-06-18,Keyboard,3,507.71,shipped
+B-0072,Liam Chen,user72@example.com,2026-01-19,Monitor stand,1,14.72,processing
+B-0073,Sara Kim,user73@example.com,2026-02-20,USB-C hub,2,21.73,cancelled
+B-0074,Tom Diaz,user74@example.com,2026-03-21,Webcam,3,28.74,refunded
+B-0075,Nina Patel,user75@example.com,2026-04-22,Headset,1,35.75,delivered
+B-0076,Omar Said,user76@example.com,2026-05-23,Notebook,2,42.76,shipped
+B-0077,Eva Wong,user77@example.com,2026-06-24,Pen set,3,49.77,processing
+B-0078,Raj Mehta,user78@example.com,2026-01-25,Desk mat,1,56.78,cancelled
+B-0079,Lucy Ford,user79@example.com,2026-02-26,Laptop sleeve,2,63.79,refunded
+B-0080,John Park,user80@example.com,2026-03-27,Wireless mouse,3,70.80,delivered
+B-0081,Asha Rao,user81@example.com,2026-04-01,Keyboard,1,77.81,shipped
+B-0082,Liam Chen,user82@example.com,2026-05-02,Monitor stand,2,84.82,processing
+B-0083,Sara Kim,user83@example.com,2026-06-03,USB-C hub,3,91.83,cancelled
+B-0084,Tom Diaz,user84@example.com,2026-01-04,Webcam,1,98.84,refunded
+B-0085,Nina Patel,user85@example.com,2026-02-05,Headset,2,105.85,delivered
+B-0086,Omar Said,user86@example.com,2026-03-06,Notebook,3,112.86,shipped
+B-0087,Eva Wong,user87@example.com,2026-04-07,Pen set,1,119.87,processing
+B-0088,Raj Mehta,user88@example.com,2026-05-08,Desk mat,2,126.88,cancelled
+B-0089,Lucy Ford,user89@example.com,2026-06-09,Laptop sleeve,3,133.89,refunded
+B-0090,John Park,user90@example.com,2026-01-10,Wireless mouse,1,140.90,delivered
+B-0091,Asha Rao,user91@example.com,2026-02-11,Keyboard,2,147.91,shipped
+B-0092,Liam Chen,user92@example.com,2026-03-12,Monitor stand,3,154.92,processing
+B-0093,Sara Kim,user93@example.com,2026-04-13,USB-C hub,1,161.93,cancelled
+B-0094,Tom Diaz,user94@example.com,2026-05-14,Webcam,2,168.94,refunded
+B-0095,Nina Patel,user95@example.com,2026-06-15,Headset,3,175.95,delivered
+B-0096,Omar Said,user96@example.com,2026-01-16,Notebook,1,182.96,shipped
+B-0097,Eva Wong,user97@example.com,2026-02-17,Pen set,2,189.97,processing
+B-0098,Raj Mehta,user98@example.com,2026-03-18,Desk mat,3,196.98,cancelled
+B-0099,Lucy Ford,user99@example.com,2026-04-19,Laptop sleeve,1,203.99,refunded
+B-0100,John Park,user100@example.com,2026-05-20,Wireless mouse,2,210.00,delivered
+B-0101,Asha Rao,user101@example.com,2026-06-21,Keyboard,3,217.01,shipped
+B-0102,Liam Chen,user102@example.com,2026-01-22,Monitor stand,1,224.02,processing
+B-0103,Sara Kim,user103@example.com,2026-02-23,USB-C hub,2,231.03,cancelled
+B-0104,Tom Diaz,user104@example.com,2026-03-24,Webcam,3,238.04,refunded
+B-0105,Nina Patel,user105@example.com,2026-04-25,Headset,1,245.05,delivered
+B-0106,Omar Said,user106@example.com,2026-05-26,Notebook,2,252.06,shipped
+B-0107,Eva Wong,user107@example.com,2026-06-27,Pen set,3,259.07,processing
+B-0108,Raj Mehta,user108@example.com,2026-01-01,Desk mat,1,266.08,cancelled
+B-0109,Lucy Ford,user109@example.com,2026-02-02,Laptop sleeve,2,273.09,refunded
+B-0110,John Park,user110@example.com,2026-03-03,Wireless mouse,3,280.10,delivered
+B-0111,Asha Rao,user111@example.com,2026-04-04,Keyboard,1,287.11,shipped
+B-0112,Liam Chen,user112@example.com,2026-05-05,Monitor stand,2,294.12,processing
+B-0113,Sara Kim,user113@example.com,2026-06-06,USB-C hub,3,301.13,cancelled
+B-0114,Tom Diaz,user114@example.com,2026-01-07,Webcam,1,308.14,refunded
+B-0115,Nina Patel,user115@example.com,2026-02-08,Headset,2,315.15,delivered
+B-0116,Omar Said,user116@example.com,2026-03-09,Notebook,3,322.16,shipped
+B-0117,Eva Wong,user117@example.com,2026-04-10,Pen set,1,329.17,processing
+B-0118,Raj Mehta,user118@example.com,2026-05-11,Desk mat,2,336.18,cancelled
+B-0119,Lucy Ford,user119@example.com,2026-06-12,Laptop sleeve,3,343.19,refunded
+B-0120,John Park,user120@example.com,2026-01-13,Wireless mouse,1,350.20,delivered
+B-0121,Asha Rao,user121@example.com,2026-02-14,Keyboard,2,357.21,shipped
+B-0122,Liam Chen,user122@example.com,2026-03-15,Monitor stand,3,364.22,processing
+B-0123,Sara Kim,user123@example.com,2026-04-16,USB-C hub,1,371.23,cancelled
+B-0124,Tom Diaz,user124@example.com,2026-05-17,Webcam,2,378.24,refunded
+B-0125,Nina Patel,user125@example.com,2026-06-18,Headset,3,385.25,delivered
+B-0126,Omar Said,user126@example.com,2026-01-19,Notebook,1,392.26,shipped
+B-0127,Eva Wong,user127@example.com,2026-02-20,Pen set,2,399.27,processing
+B-0128,Raj Mehta,user128@example.com,2026-03-21,Desk mat,3,406.28,cancelled
+B-0129,Lucy Ford,user129@example.com,2026-04-22,Laptop sleeve,1,413.29,refunded
+B-0130,John Park,user130@example.com,2026-05-23,Wireless mouse,2,420.30,delivered
+B-0131,Asha Rao,user131@example.com,2026-06-24,Keyboard,3,427.31,shipped
+B-0132,Liam Chen,user132@example.com,2026-01-25,Monitor stand,1,434.32,processing
+B-0133,Sara Kim,user133@example.com,2026-02-26,USB-C hub,2,441.33,cancelled
+B-0134,Tom Diaz,user134@example.com,2026-03-27,Webcam,3,448.34,refunded
+B-0135,Nina Patel,user135@example.com,2026-04-01,Headset,1,455.35,delivered
+B-0136,Omar Said,user136@example.com,2026-05-02,Notebook,2,462.36,shipped
+B-0137,Eva Wong,user137@example.com,2026-06-03,Pen set,3,469.37,processing
+B-0138,Raj Mehta,user138@example.com,2026-01-04,Desk mat,1,476.38,cancelled
+B-0139,Lucy Ford,user139@example.com,2026-02-05,Laptop sleeve,2,483.39,refunded
+B-0140,John Park,user140@example.com,2026-03-06,Wireless mouse,3,490.40,delivered
+B-0141,Asha Rao,user141@example.com,2026-04-07,Keyboard,1,497.41,shipped
+B-0142,Liam Chen,user142@example.com,2026-05-08,Monitor stand,2,504.42,processing
+B-0143,Sara Kim,user143@example.com,2026-06-09,USB-C hub,3,11.43,cancelled
+B-0144,Tom Diaz,user144@example.com,2026-01-10,Webcam,1,18.44,refunded
+B-0145,Nina Patel,user145@example.com,2026-02-11,Headset,2,25.45,delivered
+B-0146,Omar Said,user146@example.com,2026-03-12,Notebook,3,32.46,shipped
+B-0147,Eva Wong,user147@example.com,2026-04-13,Pen set,1,39.47,processing
+B-0148,Raj Mehta,user148@example.com,2026-05-14,Desk mat,2,46.48,cancelled
+B-0149,Lucy Ford,user149@example.com,2026-06-15,Laptop sleeve,3,53.49,refunded
+B-0150,John Park,user150@example.com,2026-01-16,Wireless mouse,1,60.50,delivered
+B-0151,Asha Rao,user151@example.com,2026-02-17,Keyboard,2,67.51,shipped
+B-0152,Liam Chen,user152@example.com,2026-03-18,Monitor stand,3,74.52,processing
+B-0153,Sara Kim,user153@example.com,2026-04-19,USB-C hub,1,81.53,cancelled
+B-0154,Tom Diaz,user154@example.com,2026-05-20,Webcam,2,88.54,refunded
+B-0155,Nina Patel,user155@example.com,2026-06-21,Headset,3,95.55,delivered
+B-0156,Omar Said,user156@example.com,2026-01-22,Notebook,1,102.56,shipped
+B-0157,Eva Wong,user157@example.com,2026-02-23,Pen set,2,109.57,processing
+B-0158,Raj Mehta,user158@example.com,2026-03-24,Desk mat,3,116.58,cancelled
+B-0159,Lucy Ford,user159@example.com,2026-04-25,Laptop sleeve,1,123.59,refunded
+B-0160,John Park,user160@example.com,2026-05-26,Wireless mouse,2,130.60,delivered
+B-0161,Asha Rao,user161@example.com,2026-06-27,Keyboard,3,137.61,shipped
+B-0162,Liam Chen,user162@example.com,2026-01-01,Monitor stand,1,144.62,processing
+B-0163,Sara Kim,user163@example.com,2026-02-02,USB-C hub,2,151.63,cancelled
+B-0164,Tom Diaz,user164@example.com,2026-03-03,Webcam,3,158.64,refunded
+B-0165,Nina Patel,user165@example.com,2026-04-04,Headset,1,165.65,delivered
+B-0166,Omar Said,user166@example.com,2026-05-05,Notebook,2,172.66,shipped
+B-0167,Eva Wong,user167@example.com,2026-06-06,Pen set,3,179.67,processing
+B-0168,Raj Mehta,user168@example.com,2026-01-07,Desk mat,1,186.68,cancelled
+B-0169,Lucy Ford,user169@example.com,2026-02-08,Laptop sleeve,2,193.69,refunded
+B-0170,John Park,user170@example.com,2026-03-09,Wireless mouse,3,200.70,delivered
+B-0171,Asha Rao,user171@example.com,2026-04-10,Keyboard,1,207.71,shipped
+B-0172,Liam Chen,user172@example.com,2026-05-11,Monitor stand,2,214.72,processing
+B-0173,Sara Kim,user173@example.com,2026-06-12,USB-C hub,3,221.73,cancelled
+B-0174,Tom Diaz,user174@example.com,2026-01-13,Webcam,1,228.74,refunded
+B-0175,Nina Patel,user175@example.com,2026-02-14,Headset,2,235.75,delivered
+B-0176,Omar Said,user176@example.com,2026-03-15,Notebook,3,242.76,shipped
+B-0177,Eva Wong,user177@example.com,2026-04-16,Pen set,1,249.77,processing
+B-0178,Raj Mehta,user178@example.com,2026-05-17,Desk mat,2,256.78,cancelled
+B-0179,Lucy Ford,user179@example.com,2026-06-18,Laptop sleeve,3,263.79,refunded
+B-0180,John Park,user180@example.com,2026-01-19,Wireless mouse,1,270.80,delivered
+B-0181,Asha Rao,user181@example.com,2026-02-20,Keyboard,2,277.81,shipped
+B-0182,Liam Chen,user182@example.com,2026-03-21,Monitor stand,3,284.82,processing
+B-0183,Sara Kim,user183@example.com,2026-04-22,USB-C hub,1,291.83,cancelled
+B-0184,Tom Diaz,user184@example.com,2026-05-23,Webcam,2,298.84,refunded
+B-0185,Nina Patel,user185@example.com,2026-06-24,Headset,3,305.85,delivered
+B-0186,Omar Said,user186@example.com,2026-01-25,Notebook,1,312.86,shipped
+B-0187,Eva Wong,user187@example.com,2026-02-26,Pen set,2,319.87,processing
+B-0188,Raj Mehta,user188@example.com,2026-03-27,Desk mat,3,326.88,cancelled
+B-0189,Lucy Ford,user189@example.com,2026-04-01,Laptop sleeve,1,333.89,refunded
+B-0190,John Park,user190@example.com,2026-05-02,Wireless mouse,2,340.90,delivered
+B-0191,Asha Rao,user191@example.com,2026-06-03,Keyboard,3,347.91,shipped
+B-0192,Liam Chen,user192@example.com,2026-01-04,Monitor stand,1,354.92,processing
+B-0193,Sara Kim,user193@example.com,2026-02-05,USB-C hub,2,361.93,cancelled
+B-0194,Tom Diaz,user194@example.com,2026-03-06,Webcam,3,368.94,refunded
+B-0195,Nina Patel,user195@example.com,2026-04-07,Headset,1,375.95,delivered
+B-0196,Omar Said,user196@example.com,2026-05-08,Notebook,2,382.96,shipped
+B-0197,Eva Wong,user197@example.com,2026-06-09,Pen set,3,389.97,processing
+B-0198,Raj Mehta,user198@example.com,2026-01-10,Desk mat,1,396.98,cancelled
+B-0199,Lucy Ford,user199@example.com,2026-02-11,Laptop sleeve,2,403.99,refunded
+B-0200,John Park,user200@example.com,2026-03-12,Wireless mouse,3,410.00,delivered
+B-0201,Asha Rao,user201@example.com,2026-04-13,Keyboard,1,417.01,shipped
+B-0202,Liam Chen,user202@example.com,2026-05-14,Monitor stand,2,424.02,processing
+B-0203,Sara Kim,user203@example.com,2026-06-15,USB-C hub,3,431.03,cancelled
+B-0204,Tom Diaz,user204@example.com,2026-01-16,Webcam,1,438.04,refunded
+B-0205,Nina Patel,user205@example.com,2026-02-17,Headset,2,445.05,delivered
+B-0206,Omar Said,user206@example.com,2026-03-18,Notebook,3,452.06,shipped
+B-0207,Eva Wong,user207@example.com,2026-04-19,Pen set,1,459.07,processing
+B-0208,Raj Mehta,user208@example.com,2026-05-20,Desk mat,2,466.08,cancelled
+B-0209,Lucy Ford,user209@example.com,2026-06-21,Laptop sleeve,3,473.09,refunded
+B-0210,John Park,user210@example.com,2026-01-22,Wireless mouse,1,480.10,delivered
+B-0211,Asha Rao,user211@example.com,2026-02-23,Keyboard,2,487.11,shipped
+B-0212,Liam Chen,user212@example.com,2026-03-24,Monitor stand,3,494.12,processing
+B-0213,Sara Kim,user213@example.com,2026-04-25,USB-C hub,1,501.13,cancelled
+B-0214,Tom Diaz,user214@example.com,2026-05-26,Webcam,2,508.14,refunded
+B-0215,Nina Patel,user215@example.com,2026-06-27,Headset,3,15.15,delivered
+B-0216,Omar Said,user216@example.com,2026-01-01,Notebook,1,22.16,shipped
+B-0217,Eva Wong,user217@example.com,2026-02-02,Pen set,2,29.17,processing
+B-0218,Raj Mehta,user218@example.com,2026-03-03,Desk mat,3,36.18,cancelled
+B-0219,Lucy Ford,user219@example.com,2026-04-04,Laptop sleeve,1,43.19,refunded
+B-0220,John Park,user220@example.com,2026-05-05,Wireless mouse,2,50.20,delivered
+B-0221,Asha Rao,user221@example.com,2026-06-06,Keyboard,3,57.21,shipped
+B-0222,Liam Chen,user222@example.com,2026-01-07,Monitor stand,1,64.22,processing
+B-0223,Sara Kim,user223@example.com,2026-02-08,USB-C hub,2,71.23,cancelled
+B-0224,Tom Diaz,user224@example.com,2026-03-09,Webcam,3,78.24,refunded
+B-0225,Nina Patel,user225@example.com,2026-04-10,Headset,1,85.25,delivered
+B-0226,Omar Said,user226@example.com,2026-05-11,Notebook,2,92.26,shipped
+B-0227,Eva Wong,user227@example.com,2026-06-12,Pen set,3,99.27,processing
+B-0228,Raj Mehta,user228@example.com,2026-01-13,Desk mat,1,106.28,cancelled
+B-0229,Lucy Ford,user229@example.com,2026-02-14,Laptop sleeve,2,113.29,refunded
+B-0230,John Park,user230@example.com,2026-03-15,Wireless mouse,3,120.30,delivered
+B-0231,Asha Rao,user231@example.com,2026-04-16,Keyboard,1,127.31,shipped
+B-0232,Liam Chen,user232@example.com,2026-05-17,Monitor stand,2,134.32,processing
+B-0233,Sara Kim,user233@example.com,2026-06-18,USB-C hub,3,141.33,cancelled
+B-0234,Tom Diaz,user234@example.com,2026-01-19,Webcam,1,148.34,refunded
+B-0235,Nina Patel,user235@example.com,2026-02-20,Headset,2,155.35,delivered
+B-0236,Omar Said,user236@example.com,2026-03-21,Notebook,3,162.36,shipped
+B-0237,Eva Wong,user237@example.com,2026-04-22,Pen set,1,169.37,processing
+B-0238,Raj Mehta,user238@example.com,2026-05-23,Desk mat,2,176.38,cancelled
+B-0239,Lucy Ford,user239@example.com,2026-06-24,Laptop sleeve,3,183.39,refunded
+B-0240,John Park,user240@example.com,2026-01-25,Wireless mouse,1,190.40,delivered
+B-0241,Asha Rao,user241@example.com,2026-02-26,Keyboard,2,197.41,shipped
+B-0242,Liam Chen,user242@example.com,2026-03-27,Monitor stand,3,204.42,processing
+B-0243,Sara Kim,user243@example.com,2026-04-01,USB-C hub,1,211.43,cancelled
+B-0244,Tom Diaz,user244@example.com,2026-05-02,Webcam,2,218.44,refunded
+B-0245,Nina Patel,user245@example.com,2026-06-03,Headset,3,225.45,delivered
+B-0246,Omar Said,user246@example.com,2026-01-04,Notebook,1,232.46,shipped
+B-0247,Eva Wong,user247@example.com,2026-02-05,Pen set,2,239.47,processing
+B-0248,Raj Mehta,user248@example.com,2026-03-06,Desk mat,3,246.48,cancelled
+B-0249,Lucy Ford,user249@example.com,2026-04-07,Laptop sleeve,1,253.49,refunded
+B-0250,John Park,user250@example.com,2026-05-08,Wireless mouse,2,260.50,delivered
+B-0251,Asha Rao,user251@example.com,2026-06-09,Keyboard,3,267.51,shipped
+B-0252,Liam Chen,user252@example.com,2026-01-10,Monitor stand,1,274.52,processing
+B-0253,Sara Kim,user253@example.com,2026-02-11,USB-C hub,2,281.53,cancelled
+B-0254,Tom Diaz,user254@example.com,2026-03-12,Webcam,3,288.54,refunded
+B-0255,Nina Patel,user255@example.com,2026-04-13,Headset,1,295.55,delivered
+B-0256,Omar Said,user256@example.com,2026-05-14,Notebook,2,302.56,shipped
+B-0257,Eva Wong,user257@example.com,2026-06-15,Pen set,3,309.57,processing
+B-0258,Raj Mehta,user258@example.com,2026-01-16,Desk mat,1,316.58,cancelled
+B-0259,Lucy Ford,user259@example.com,2026-02-17,Laptop sleeve,2,323.59,refunded
+B-0260,John Park,user260@example.com,2026-03-18,Wireless mouse,3,330.60,delivered
+B-0261,Asha Rao,user261@example.com,2026-04-19,Keyboard,1,337.61,shipped
+B-0262,Liam Chen,user262@example.com,2026-05-20,Monitor stand,2,344.62,processing
+B-0263,Sara Kim,user263@example.com,2026-06-21,USB-C hub,3,351.63,cancelled
+B-0264,Tom Diaz,user264@example.com,2026-01-22,Webcam,1,358.64,refunded
+B-0265,Nina Patel,user265@example.com,2026-02-23,Headset,2,365.65,delivered
+B-0266,Omar Said,user266@example.com,2026-03-24,Notebook,3,372.66,shipped
+B-0267,Eva Wong,user267@example.com,2026-04-25,Pen set,1,379.67,processing
+B-0268,Raj Mehta,user268@example.com,2026-05-26,Desk mat,2,386.68,cancelled
+B-0269,Lucy Ford,user269@example.com,2026-06-27,Laptop sleeve,3,393.69,refunded
+B-0270,John Park,user270@example.com,2026-01-01,Wireless mouse,1,400.70,delivered
+B-0271,Asha Rao,user271@example.com,2026-02-02,Keyboard,2,407.71,shipped
+B-0272,Liam Chen,user272@example.com,2026-03-03,Monitor stand,3,414.72,processing
+B-0273,Sara Kim,user273@example.com,2026-04-04,USB-C hub,1,421.73,cancelled
+B-0274,Tom Diaz,user274@example.com,2026-05-05,Webcam,2,428.74,refunded
+B-0275,Nina Patel,user275@example.com,2026-06-06,Headset,3,435.75,delivered
+B-0276,Omar Said,user276@example.com,2026-01-07,Notebook,1,442.76,shipped
+B-0277,Eva Wong,user277@example.com,2026-02-08,Pen set,2,449.77,processing
+B-0278,Raj Mehta,user278@example.com,2026-03-09,Desk mat,3,456.78,cancelled
+B-0279,Lucy Ford,user279@example.com,2026-04-10,Laptop sleeve,1,463.79,refunded
+B-0280,John Park,user280@example.com,2026-05-11,Wireless mouse,2,470.80,delivered
+B-0281,Asha Rao,user281@example.com,2026-06-12,Keyboard,3,477.81,shipped
+B-0282,Liam Chen,user282@example.com,2026-01-13,Monitor stand,1,484.82,processing
+B-0283,Sara Kim,user283@example.com,2026-02-14,USB-C hub,2,491.83,cancelled
+B-0284,Tom Diaz,user284@example.com,2026-03-15,Webcam,3,498.84,refunded
+B-0285,Nina Patel,user285@example.com,2026-04-16,Headset,1,505.85,delivered
+B-0286,Omar Said,user286@example.com,2026-05-17,Notebook,2,12.86,shipped
+B-0287,Eva Wong,user287@example.com,2026-06-18,Pen set,3,19.87,processing
+B-0288,Raj Mehta,user288@example.com,2026-01-19,Desk mat,1,26.88,cancelled
+B-0289,Lucy Ford,user289@example.com,2026-02-20,Laptop sleeve,2,33.89,refunded
+B-0290,John Park,user290@example.com,2026-03-21,Wireless mouse,3,40.90,delivered
+B-0291,Asha Rao,user291@example.com,2026-04-22,Keyboard,1,47.91,shipped
+B-0292,Liam Chen,user292@example.com,2026-05-23,Monitor stand,2,54.92,processing
+B-0293,Sara Kim,user293@example.com,2026-06-24,USB-C hub,3,61.93,cancelled
+B-0294,Tom Diaz,user294@example.com,2026-01-25,Webcam,1,68.94,refunded
+B-0295,Nina Patel,user295@example.com,2026-02-26,Headset,2,75.95,delivered
+B-0296,Omar Said,user296@example.com,2026-03-27,Notebook,3,82.96,shipped
+B-0297,Eva Wong,user297@example.com,2026-04-01,Pen set,1,89.97,processing
+B-0298,Raj Mehta,user298@example.com,2026-05-02,Desk mat,2,96.98,cancelled
+B-0299,Lucy Ford,user299@example.com,2026-06-03,Laptop sleeve,3,103.99,refunded
+B-0300,John Park,user300@example.com,2026-01-04,Wireless mouse,1,110.00,delivered
+B-0301,Asha Rao,user301@example.com,2026-02-05,Keyboard,2,117.01,shipped
+B-0302,Liam Chen,user302@example.com,2026-03-06,Monitor stand,3,124.02,processing
+B-0303,Sara Kim,user303@example.com,2026-04-07,USB-C hub,1,131.03,cancelled
+B-0304,Tom Diaz,user304@example.com,2026-05-08,Webcam,2,138.04,refunded
+B-0305,Nina Patel,user305@example.com,2026-06-09,Headset,3,145.05,delivered
+B-0306,Omar Said,user306@example.com,2026-01-10,Notebook,1,152.06,shipped
+B-0307,Eva Wong,user307@example.com,2026-02-11,Pen set,2,159.07,processing
+B-0308,Raj Mehta,user308@example.com,2026-03-12,Desk mat,3,166.08,cancelled
+B-0309,Lucy Ford,user309@example.com,2026-04-13,Laptop sleeve,1,173.09,refunded
+B-0310,John Park,user310@example.com,2026-05-14,Wireless mouse,2,180.10,delivered
+B-0311,Asha Rao,user311@example.com,2026-06-15,Keyboard,3,187.11,shipped
+B-0312,Liam Chen,user312@example.com,2026-01-16,Monitor stand,1,194.12,processing
+B-0313,Sara Kim,user313@example.com,2026-02-17,USB-C hub,2,201.13,cancelled
+B-0314,Tom Diaz,user314@example.com,2026-03-18,Webcam,3,208.14,refunded
+B-0315,Nina Patel,user315@example.com,2026-04-19,Headset,1,215.15,delivered
+B-0316,Omar Said,user316@example.com,2026-05-20,Notebook,2,222.16,shipped
+B-0317,Eva Wong,user317@example.com,2026-06-21,Pen set,3,229.17,processing
+B-0318,Raj Mehta,user318@example.com,2026-01-22,Desk mat,1,236.18,cancelled
+B-0319,Lucy Ford,user319@example.com,2026-02-23,Laptop sleeve,2,243.19,refunded
+B-0320,John Park,user320@example.com,2026-03-24,Wireless mouse,3,250.20,delivered
+B-0321,Asha Rao,user321@example.com,2026-04-25,Keyboard,1,257.21,shipped
+B-0322,Liam Chen,user322@example.com,2026-05-26,Monitor stand,2,264.22,processing
+B-0323,Sara Kim,user323@example.com,2026-06-27,USB-C hub,3,271.23,cancelled
+B-0324,Tom Diaz,user324@example.com,2026-01-01,Webcam,1,278.24,refunded
+B-0325,Nina Patel,user325@example.com,2026-02-02,Headset,2,285.25,delivered
+B-0326,Omar Said,user326@example.com,2026-03-03,Notebook,3,292.26,shipped
+B-0327,Eva Wong,user327@example.com,2026-04-04,Pen set,1,299.27,processing
+B-0328,Raj Mehta,user328@example.com,2026-05-05,Desk mat,2,306.28,cancelled
+B-0329,Lucy Ford,user329@example.com,2026-06-06,Laptop sleeve,3,313.29,refunded
+B-0330,John Park,user330@example.com,2026-01-07,Wireless mouse,1,320.30,delivered
+B-0331,Asha Rao,user331@example.com,2026-02-08,Keyboard,2,327.31,shipped
+B-0332,Liam Chen,user332@example.com,2026-03-09,Monitor stand,3,334.32,processing
+B-0333,Sara Kim,user333@example.com,2026-04-10,USB-C hub,1,341.33,cancelled
+B-0334,Tom Diaz,user334@example.com,2026-05-11,Webcam,2,348.34,refunded
+B-0335,Nina Patel,user335@example.com,2026-06-12,Headset,3,355.35,delivered
+B-0336,Omar Said,user336@example.com,2026-01-13,Notebook,1,362.36,shipped
+B-0337,Eva Wong,user337@example.com,2026-02-14,Pen set,2,369.37,processing
+B-0338,Raj Mehta,user338@example.com,2026-03-15,Desk mat,3,376.38,cancelled
+B-0339,Lucy Ford,user339@example.com,2026-04-16,Laptop sleeve,1,383.39,refunded
+B-0340,John Park,user340@example.com,2026-05-17,Wireless mouse,2,390.40,delivered
+B-0341,Asha Rao,user341@example.com,2026-06-18,Keyboard,3,397.41,shipped
+B-0342,Liam Chen,user342@example.com,2026-01-19,Monitor stand,1,404.42,processing
+B-0343,Sara Kim,user343@example.com,2026-02-20,USB-C hub,2,411.43,cancelled
+B-0344,Tom Diaz,user344@example.com,2026-03-21,Webcam,3,418.44,refunded
+B-0345,Nina Patel,user345@example.com,2026-04-22,Headset,1,425.45,delivered
+B-0346,Omar Said,user346@example.com,2026-05-23,Notebook,2,432.46,shipped
+B-0347,Eva Wong,user347@example.com,2026-06-24,Pen set,3,439.47,processing
+B-0348,Raj Mehta,user348@example.com,2026-01-25,Desk mat,1,446.48,cancelled
+B-0349,Lucy Ford,user349@example.com,2026-02-26,Laptop sleeve,2,453.49,refunded
+B-0350,John Park,user350@example.com,2026-03-27,Wireless mouse,3,460.50,delivered
+B-0351,Asha Rao,user351@example.com,2026-04-01,Keyboard,1,467.51,shipped
+B-0352,Liam Chen,user352@example.com,2026-05-02,Monitor stand,2,474.52,processing
+B-0353,Sara Kim,user353@example.com,2026-06-03,USB-C hub,3,481.53,cancelled
+B-0354,Tom Diaz,user354@example.com,2026-01-04,Webcam,1,488.54,refunded
+B-0355,Nina Patel,user355@example.com,2026-02-05,Headset,2,495.55,delivered
+B-0356,Omar Said,user356@example.com,2026-03-06,Notebook,3,502.56,shipped
+B-0357,Eva Wong,user357@example.com,2026-04-07,Pen set,1,509.57,processing
+B-0358,Raj Mehta,user358@example.com,2026-05-08,Desk mat,2,16.58,cancelled
+B-0359,Lucy Ford,user359@example.com,2026-06-09,Laptop sleeve,3,23.59,refunded
+B-0360,John Park,user360@example.com,2026-01-10,Wireless mouse,1,30.60,delivered
+B-0361,Asha Rao,user361@example.com,2026-02-11,Keyboard,2,37.61,shipped
+B-0362,Liam Chen,user362@example.com,2026-03-12,Monitor stand,3,44.62,processing
+B-0363,Sara Kim,user363@example.com,2026-04-13,USB-C hub,1,51.63,cancelled
+B-0364,Tom Diaz,user364@example.com,2026-05-14,Webcam,2,58.64,refunded
+B-0365,Nina Patel,user365@example.com,2026-06-15,Headset,3,65.65,delivered
+B-0366,Omar Said,user366@example.com,2026-01-16,Notebook,1,72.66,shipped
+B-0367,Eva Wong,user367@example.com,2026-02-17,Pen set,2,79.67,processing
+B-0368,Raj Mehta,user368@example.com,2026-03-18,Desk mat,3,86.68,cancelled
+B-0369,Lucy Ford,user369@example.com,2026-04-19,Laptop sleeve,1,93.69,refunded
+B-0370,John Park,user370@example.com,2026-05-20,Wireless mouse,2,100.70,delivered
+B-0371,Asha Rao,user371@example.com,2026-06-21,Keyboard,3,107.71,shipped
+B-0372,Liam Chen,user372@example.com,2026-01-22,Monitor stand,1,114.72,processing
+B-0373,Sara Kim,user373@example.com,2026-02-23,USB-C hub,2,121.73,cancelled
+B-0374,Tom Diaz,user374@example.com,2026-03-24,Webcam,3,128.74,refunded
+B-0375,Nina Patel,user375@example.com,2026-04-25,Headset,1,135.75,delivered
+B-0376,Omar Said,user376@example.com,2026-05-26,Notebook,2,142.76,shipped
+B-0377,Eva Wong,user377@example.com,2026-06-27,Pen set,3,149.77,processing
+B-0378,Raj Mehta,user378@example.com,2026-01-01,Desk mat,1,156.78,cancelled
+B-0379,Lucy Ford,user379@example.com,2026-02-02,Laptop sleeve,2,163.79,refunded
+B-0380,John Park,user380@example.com,2026-03-03,Wireless mouse,3,170.80,delivered
+B-0381,Asha Rao,user381@example.com,2026-04-04,Keyboard,1,177.81,shipped
+B-0382,Liam Chen,user382@example.com,2026-05-05,Monitor stand,2,184.82,processing
+B-0383,Sara Kim,user383@example.com,2026-06-06,USB-C hub,3,191.83,cancelled
+B-0384,Tom Diaz,user384@example.com,2026-01-07,Webcam,1,198.84,refunded
+B-0385,Nina Patel,user385@example.com,2026-02-08,Headset,2,205.85,delivered
+B-0386,Omar Said,user386@example.com,2026-03-09,Notebook,3,212.86,shipped
+B-0387,Eva Wong,user387@example.com,2026-04-10,Pen set,1,219.87,processing
+B-0388,Raj Mehta,user388@example.com,2026-05-11,Desk mat,2,226.88,cancelled
+B-0389,Lucy Ford,user389@example.com,2026-06-12,Laptop sleeve,3,233.89,refunded
+B-0390,John Park,user390@example.com,2026-01-13,Wireless mouse,1,240.90,delivered
+B-0391,Asha Rao,user391@example.com,2026-02-14,Keyboard,2,247.91,shipped
+B-0392,Liam Chen,user392@example.com,2026-03-15,Monitor stand,3,254.92,processing
+B-0393,Sara Kim,user393@example.com,2026-04-16,USB-C hub,1,261.93,cancelled
+B-0394,Tom Diaz,user394@example.com,2026-05-17,Webcam,2,268.94,refunded
+B-0395,Nina Patel,user395@example.com,2026-06-18,Headset,3,275.95,delivered
+B-0396,Omar Said,user396@example.com,2026-01-19,Notebook,1,282.96,shipped
+B-0397,Eva Wong,user397@example.com,2026-02-20,Pen set,2,289.97,processing
+B-0398,Raj Mehta,user398@example.com,2026-03-21,Desk mat,3,296.98,cancelled
+B-0399,Lucy Ford,user399@example.com,2026-04-22,Laptop sleeve,1,303.99,refunded
+B-0400,John Park,user400@example.com,2026-05-23,Wireless mouse,2,310.00,delivered
+B-0401,Asha Rao,user401@example.com,2026-06-24,Keyboard,3,317.01,shipped
+B-0402,Liam Chen,user402@example.com,2026-01-25,Monitor stand,1,324.02,processing
+B-0403,Sara Kim,user403@example.com,2026-02-26,USB-C hub,2,331.03,cancelled
+B-0404,Tom Diaz,user404@example.com,2026-03-27,Webcam,3,338.04,refunded
+B-0405,Nina Patel,user405@example.com,2026-04-01,Headset,1,345.05,delivered
+B-0406,Omar Said,user406@example.com,2026-05-02,Notebook,2,352.06,shipped
+B-0407,Eva Wong,user407@example.com,2026-06-03,Pen set,3,359.07,processing
+B-0408,Raj Mehta,user408@example.com,2026-01-04,Desk mat,1,366.08,cancelled
+B-0409,Lucy Ford,user409@example.com,2026-02-05,Laptop sleeve,2,373.09,refunded
+B-0410,John Park,user410@example.com,2026-03-06,Wireless mouse,3,380.10,delivered
+B-0411,Asha Rao,user411@example.com,2026-04-07,Keyboard,1,387.11,shipped
+B-0412,Liam Chen,user412@example.com,2026-05-08,Monitor stand,2,394.12,processing
+B-0413,Sara Kim,user413@example.com,2026-06-09,USB-C hub,3,401.13,cancelled
+B-0414,Tom Diaz,user414@example.com,2026-01-10,Webcam,1,408.14,refunded
+B-0415,Nina Patel,user415@example.com,2026-02-11,Headset,2,415.15,delivered
+B-0416,Omar Said,user416@example.com,2026-03-12,Notebook,3,422.16,shipped
+B-0417,Eva Wong,user417@example.com,2026-04-13,Pen set,1,429.17,processing
+B-0418,Raj Mehta,user418@example.com,2026-05-14,Desk mat,2,436.18,cancelled
+B-0419,Lucy Ford,user419@example.com,2026-06-15,Laptop sleeve,3,443.19,refunded
+B-0420,John Park,user420@example.com,2026-01-16,Wireless mouse,1,450.20,delivered
+B-0421,Asha Rao,user421@example.com,2026-02-17,Keyboard,2,457.21,shipped
+B-0422,Liam Chen,user422@example.com,2026-03-18,Monitor stand,3,464.22,processing
+B-0423,Sara Kim,user423@example.com,2026-04-19,USB-C hub,1,471.23,cancelled
+B-0424,Tom Diaz,user424@example.com,2026-05-20,Webcam,2,478.24,refunded
+B-0425,Nina Patel,user425@example.com,2026-06-21,Headset,3,485.25,delivered
+B-0426,Omar Said,user426@example.com,2026-01-22,Notebook,1,492.26,shipped
+B-0427,Eva Wong,user427@example.com,2026-02-23,Pen set,2,499.27,processing
+B-0428,Raj Mehta,user428@example.com,2026-03-24,Desk mat,3,506.28,cancelled
+B-0429,Lucy Ford,user429@example.com,2026-04-25,Laptop sleeve,1,13.29,refunded
+B-0430,John Park,user430@example.com,2026-05-26,Wireless mouse,2,20.30,delivered
+B-0431,Asha Rao,user431@example.com,2026-06-27,Keyboard,3,27.31,shipped
+B-0432,Liam Chen,user432@example.com,2026-01-01,Monitor stand,1,34.32,processing
+B-0433,Sara Kim,user433@example.com,2026-02-02,USB-C hub,2,41.33,cancelled
+B-0434,Tom Diaz,user434@example.com,2026-03-03,Webcam,3,48.34,refunded
+B-0435,Nina Patel,user435@example.com,2026-04-04,Headset,1,55.35,delivered
+B-0436,Omar Said,user436@example.com,2026-05-05,Notebook,2,62.36,shipped
+B-0437,Eva Wong,user437@example.com,2026-06-06,Pen set,3,69.37,processing
+B-0438,Raj Mehta,user438@example.com,2026-01-07,Desk mat,1,76.38,cancelled
+B-0439,Lucy Ford,user439@example.com,2026-02-08,Laptop sleeve,2,83.39,refunded
+B-0440,John Park,user440@example.com,2026-03-09,Wireless mouse,3,90.40,delivered
+B-0441,Asha Rao,user441@example.com,2026-04-10,Keyboard,1,97.41,shipped
+B-0442,Liam Chen,user442@example.com,2026-05-11,Monitor stand,2,104.42,processing
+B-0443,Sara Kim,user443@example.com,2026-06-12,USB-C hub,3,111.43,cancelled
+B-0444,Tom Diaz,user444@example.com,2026-01-13,Webcam,1,118.44,refunded
+B-0445,Nina Patel,user445@example.com,2026-02-14,Headset,2,125.45,delivered
+B-0446,Omar Said,user446@example.com,2026-03-15,Notebook,3,132.46,shipped
+B-0447,Eva Wong,user447@example.com,2026-04-16,Pen set,1,139.47,processing
+B-0448,Raj Mehta,user448@example.com,2026-05-17,Desk mat,2,146.48,cancelled
+B-0449,Lucy Ford,user449@example.com,2026-06-18,Laptop sleeve,3,153.49,refunded
+B-0450,John Park,user450@example.com,2026-01-19,Wireless mouse,1,160.50,delivered
+B-0451,Asha Rao,user451@example.com,2026-02-20,Keyboard,2,167.51,shipped
+B-0452,Liam Chen,user452@example.com,2026-03-21,Monitor stand,3,174.52,processing
+B-0453,Sara Kim,user453@example.com,2026-04-22,USB-C hub,1,181.53,cancelled
+B-0454,Tom Diaz,user454@example.com,2026-05-23,Webcam,2,188.54,refunded
+B-0455,Nina Patel,user455@example.com,2026-06-24,Headset,3,195.55,delivered
+B-0456,Omar Said,user456@example.com,2026-01-25,Notebook,1,202.56,shipped
+B-0457,Eva Wong,user457@example.com,2026-02-26,Pen set,2,209.57,processing
+B-0458,Raj Mehta,user458@example.com,2026-03-27,Desk mat,3,216.58,cancelled
+B-0459,Lucy Ford,user459@example.com,2026-04-01,Laptop sleeve,1,223.59,refunded
+B-0460,John Park,user460@example.com,2026-05-02,Wireless mouse,2,230.60,delivered
+B-0461,Asha Rao,user461@example.com,2026-06-03,Keyboard,3,237.61,shipped
+B-0462,Liam Chen,user462@example.com,2026-01-04,Monitor stand,1,244.62,processing
+B-0463,Sara Kim,user463@example.com,2026-02-05,USB-C hub,2,251.63,cancelled
+B-0464,Tom Diaz,user464@example.com,2026-03-06,Webcam,3,258.64,refunded
+B-0465,Nina Patel,user465@example.com,2026-04-07,Headset,1,265.65,delivered
+B-0466,Omar Said,user466@example.com,2026-05-08,Notebook,2,272.66,shipped
+B-0467,Eva Wong,user467@example.com,2026-06-09,Pen set,3,279.67,processing
+B-0468,Raj Mehta,user468@example.com,2026-01-10,Desk mat,1,286.68,cancelled
+B-0469,Lucy Ford,user469@example.com,2026-02-11,Laptop sleeve,2,293.69,refunded
+B-0470,John Park,user470@example.com,2026-03-12,Wireless mouse,3,300.70,delivered
+B-0471,Asha Rao,user471@example.com,2026-04-13,Keyboard,1,307.71,shipped
+B-0472,Liam Chen,user472@example.com,2026-05-14,Monitor stand,2,314.72,processing
+B-0473,Sara Kim,user473@example.com,2026-06-15,USB-C hub,3,321.73,cancelled
+B-0474,Tom Diaz,user474@example.com,2026-01-16,Webcam,1,328.74,refunded
+B-0475,Nina Patel,user475@example.com,2026-02-17,Headset,2,335.75,delivered
+B-0476,Omar Said,user476@example.com,2026-03-18,Notebook,3,342.76,shipped
+B-0477,Eva Wong,user477@example.com,2026-04-19,Pen set,1,349.77,processing
+B-0478,Raj Mehta,user478@example.com,2026-05-20,Desk mat,2,356.78,cancelled
+B-0479,Lucy Ford,user479@example.com,2026-06-21,Laptop sleeve,3,363.79,refunded
+B-0480,John Park,user480@example.com,2026-01-22,Wireless mouse,1,370.80,delivered
+B-0481,Asha Rao,user481@example.com,2026-02-23,Keyboard,2,377.81,shipped
+B-0482,Liam Chen,user482@example.com,2026-03-24,Monitor stand,3,384.82,processing
+B-0483,Sara Kim,user483@example.com,2026-04-25,USB-C hub,1,391.83,cancelled
+B-0484,Tom Diaz,user484@example.com,2026-05-26,Webcam,2,398.84,refunded
+B-0485,Nina Patel,user485@example.com,2026-06-27,Headset,3,405.85,delivered
+B-0486,Omar Said,user486@example.com,2026-01-01,Notebook,1,412.86,shipped
+B-0487,Eva Wong,user487@example.com,2026-02-02,Pen set,2,419.87,processing
+B-0488,Raj Mehta,user488@example.com,2026-03-03,Desk mat,3,426.88,cancelled
+B-0489,Lucy Ford,user489@example.com,2026-04-04,Laptop sleeve,1,433.89,refunded
+B-0490,John Park,user490@example.com,2026-05-05,Wireless mouse,2,440.90,delivered
+B-0491,Asha Rao,user491@example.com,2026-06-06,Keyboard,3,447.91,shipped
+B-0492,Liam Chen,user492@example.com,2026-01-07,Monitor stand,1,454.92,processing
+B-0493,Sara Kim,user493@example.com,2026-02-08,USB-C hub,2,461.93,cancelled
+B-0494,Tom Diaz,user494@example.com,2026-03-09,Webcam,3,468.94,refunded
+B-0495,Nina Patel,user495@example.com,2026-04-10,Headset,1,475.95,delivered
+B-0496,Omar Said,user496@example.com,2026-05-11,Notebook,2,482.96,shipped
+B-0497,Eva Wong,user497@example.com,2026-06-12,Pen set,3,489.97,processing
+B-0498,Raj Mehta,user498@example.com,2026-01-13,Desk mat,1,496.98,cancelled

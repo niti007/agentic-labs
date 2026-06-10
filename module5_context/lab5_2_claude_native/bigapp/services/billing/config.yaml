@@ -1,0 +1,4 @@
+# Billing config. A valid config MUST have: currency, tax_rate, account_id.
+# NOTE: account_id is intentionally MISSING — this is the broken file for the failure demo.
+currency: USD
+tax_rate: 0.08

@@ -177,6 +177,94 @@ automatic, every-time step — the same way a factory line has an automatic qual
 
 ---
 
+# Module 4 — Asking the AI the right way (no code at all)
+
+## Lab 4.1 — Getting sharp, consistent answers
+**What we're doing:** sorting a pile of customer feedback by how urgent it is, and showing
+that *how you word the request* decides how good the answer is. First we write down exactly
+what "urgent" means (so the AI stops guessing and stops crying wolf), then we give it three
+"here's a good answer" examples (so every reply looks the same), and finally we watch it
+handle new, tricky messages it was never shown.
+**Why it matters:** it's the same as briefing a new teammate — a clear brief plus a couple of
+examples gets reliable work fast. Five minutes of setup, done once, and every future answer
+is consistent instead of something you have to fix each time. This is the most useful lab for
+non-technical people, because it's about *asking well*, not about code.
+
+| Inside the folder | What it contains |
+|-------------------|------------------|
+| `RUNBOOK.md` | The step-by-step demo script. |
+| `lab4_1_claude_native.md` | The short handout. |
+| `CLAUDE.md` | House rules: follow the criteria and match the examples. |
+| `criteria.md` | Plain-English rules for what counts as urgent (Critical / Major / Minor). |
+| `examples.md` | Three done-right examples that lock the format and tone. |
+| `feedback_inbox.md` | Today's customer messages to sort (a few are tricky on purpose). |
+| `.claude/commands/triage-feedback.md` | A `/triage-feedback` shortcut that sorts the inbox using the rules + examples. |
+
+## Lab 4.2 — Getting clean, usable answers (a form, not an essay)
+**What we're doing:** scoring sales leads from 0 to 10, but making the AI **fill out a form**
+(name, score, reason) instead of writing a paragraph. We put a checker on the form so
+nonsense gets rejected (a score of 15, or a blank reason), and we let the AI read the
+rejection and fix its own answer until it's valid.
+**Why it matters:** the moment AI output flows into a real tool — a spreadsheet, a CRM, an
+automated email — one stray paragraph or a "score: very high" jams the machine. A form +
+a checker + self-correction is what makes AI output clean enough to actually plug in and
+automate. (You never touch the code; you just watch the AI fill the form.)
+
+| Inside the folder | What it contains |
+|-------------------|------------------|
+| `RUNBOOK.md` | The step-by-step demo script. |
+| `lab4_2_claude_native.md` | The short handout. |
+| `CLAUDE.md` | House rules: always use the form; if rejected, fix and try again. |
+| `lead_scoring_server.py` | The "form" tool — forces and checks name/score/reason (you don't edit it). |
+| `.mcp.json` | Connects the form tool to Claude. |
+| `leads.md` | Today's sales leads to score. |
+| `rubric.md` | Plain guide for what a 0-10 score means. |
+
+---
+
+# Module 5 — Staying reliable on long, big jobs (plain English)
+
+## Lab 5.1 — Not losing the plot in a long conversation
+**What we're doing:** playing a support agent handling one customer all day. We show three
+habits: write the key facts (like the order number) onto a "sticky note" so they survive a
+long chat, look up just the order we need instead of reading a 500-row file, and ask "which
+order?" when the customer has two and says "cancel my order" — instead of guessing.
+**Why it matters:** everyone's been asked for their order number three times by a call
+centre. These are the habits a *good* agent has — keep notes, look up only what's needed,
+and check before doing something you can't undo. They're what let an AI handle long, real
+conversations without forgetting or making an expensive mistake.
+
+| Inside the folder | What it contains |
+|-------------------|------------------|
+| `RUNBOOK.md` | The step-by-step demo script. |
+| `lab5_1_claude_native.md` | The short handout. |
+| `CLAUDE.md` | House rules: keep the sticky note, don't dump big files, ask when unsure. |
+| `customer_case.md` | The scenario: a customer with two orders and a broken lamp. |
+| `case_file.md` | The "sticky note" where the AI pins key facts. |
+| `orders_export.csv` | A 500-row order list (so we can show "look up, don't read it all"). |
+| `.claude/commands/case-fact.md` | A `/case-fact` shortcut to pin a fact in one step. |
+
+## Lab 5.2 — Being dependable on big, long jobs
+**What we're doing:** working inside a big, unfamiliar company project. We show three habits:
+when a helper hits a broken file it reports a loud "FAILED" (instead of pretending it's
+fine), it takes notes in a scratchpad while exploring so nothing's lost, and — in the
+terminal — it shrinks a long session and recovers it after a crash.
+**Why it matters:** the scariest way an AI lets you down is the *silent* failure — "all
+done," but it quietly skipped a broken step. These habits make failures loud, keep progress
+written down, and make a crash a shrug instead of a disaster — which is what makes it safe to
+trust an AI with real, multi-step work.
+
+| Inside the folder | What it contains |
+|-------------------|------------------|
+| `RUNBOOK.md` | The step-by-step demo script (one part runs in the terminal). |
+| `lab5_2_claude_native.md` | The short handout. |
+| `CLAUDE.md` | House rules: surface failures loudly; take notes while exploring. |
+| `.claude/agents/checker.md` | A helper that checks a file and reports failures honestly. |
+| `bigapp/` | A pretend large project to explore (with one deliberately broken file). |
+| `scratchpad.md` | The notepad where the AI jots what it finds. |
+
+---
+
 ## If you only remember three things
 1. **Each lab is a folder you open in Claude Code; follow its `RUNBOOK.md`.**
 2. **`CLAUDE.md` = the assistant's house rules; `.claude/` = its extra abilities; `.mcp.json` = its connections to data.**
