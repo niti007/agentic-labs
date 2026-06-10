@@ -1,3 +1,4 @@
-anthropic>=0.40.0
+# mcp     -> the local MCP servers (Lab 2.1 'shop', Lab 2.2 'db'/'docs')
+# pytest  -> the TDD / CI labs (Lab 3.2 test_login.py, Lab 3.3 test_calc.py)
 mcp>=1.2.0
-python-dotenv>=1.0.0
+pytest>=8.0.0
