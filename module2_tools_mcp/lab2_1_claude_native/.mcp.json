@@ -1,0 +1,10 @@
+```json
+{
+  "mcpServers": {
+    "shopbad": {
+      "command": "py",
+      "args": ["lab2_1_badnames_server.py"]
+    }
+  }
+}
+```

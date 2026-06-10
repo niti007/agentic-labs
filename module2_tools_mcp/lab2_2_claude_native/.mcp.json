@@ -1,0 +1,19 @@
+{
+  "_comment": "Lab 2.2 native — MULTI-SOURCE setup. Launch `claude` from THIS folder so this .mcp.json auto-loads; approve both servers when prompted. 'db' and 'docs' are two separate local Python MCP servers wired into the same project. For a third source, add the 'filesystem' entry shown in _optional_third_source (needs Node/npx).",
+  "mcpServers": {
+    "db": {
+      "command": "py",
+      "args": ["db_server.py"]
+    },
+    "docs": {
+      "command": "py",
+      "args": ["docs_server.py"]
+    }
+  },
+  "_optional_third_source": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    }
+  }
+}

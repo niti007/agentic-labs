@@ -4,3 +4,9 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+
+# Lab demo runtime artifacts (regenerated when running the labs)
+**/.claude/hooks/write-audit.log
+module1_agentic/lab1_2_claude_native/output/*.txt
+**/review.json
+.pytest_cache/

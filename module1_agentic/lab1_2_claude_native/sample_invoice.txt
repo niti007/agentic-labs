@@ -1,0 +1,9 @@
+INVOICE #4471
+Vendor: Acme Cloud Services
+Date: 2026-05-12
+Line items:
+  - Compute (May): $1,240.00
+  - Storage (May): $310.50
+  - Support plan: $99.00
+Total due: $1,649.50
+Payment terms: Net 30
