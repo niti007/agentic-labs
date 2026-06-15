@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Tool Design & MCP Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            color: #f5576c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 25px;
+            min-height: 280px;
+        }
+
+        .card h3 {
+            color: #f5576c;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.8em;
+        }
+
+        .card p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        .architecture-diagram {
+            background: white;
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            min-height: 600px;
+        }
+
+        .demo-section {
+            background: #fff5f7;
+            border-left: 5px solid #f5576c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .demo-section h4 {
+            color: #f5576c;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .demo-box {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            border-color: #f5576c;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .demo-box h5 {
+            color: #f5576c;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .demo-box p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .keyword {
+            color: #d63031;
+            font-weight: bold;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            color: #f5576c;
+            margin: 10px 0;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .highlight-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box strong {
+            color: #c92a2a;
+        }
+
+        .lab-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .lab-link-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .lab-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        .lab-link-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .lab-link-card p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background: #f5f7fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-links {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            svg {
+                min-height: 400px;
+            }
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 2px solid #f5576c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: #f5576c;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f5576c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+        .badge.mandatory {
+            background: #e74c3c;
+        }
+
+        .badge.optional {
+            background: #f39c12;
+        }
+
+        .tool-interface-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tool-interface-box strong {
+            color: #1565c0;
+        }
+
+        .error-flow {
+            background: #ffe0e0;
+            border: 2px solid #f5576c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .error-flow strong {
+            color: #d63031;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mcp-flow {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+            border: 2px solid #4285f4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #f5576c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Module 2: Tool Design & MCP Integration</h1>
+            <p>Building reliable AI agents through clear interfaces, structured errors, and smart tool scoping</p>
+        </header>
+
+        <div class="content">
+            <!-- WHAT Section -->
+            <section>
+                <h2>🎯 WHAT We Are Doing</h2>
+                <div class="three-column">
+                    <div class="card">
+                        <h3><span class="card-icon">🎯</span>Lab 2.1: Tool Design</h3>
+                        <p>Teaching tool design for reliability through three patterns:</p>
+                        <ul>
+                            <li>Demo G: Clear interfaces</li>
+                            <li>Demo H: Structured errors</li>
+                            <li>Demo I: Scoped access</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><strong>Using a real MCP server</strong> — the same mechanism you'd ship to production.</p>
+                    </div>
+                    <div class="card">
+                        <h3><span class="card-icon">🔗</span>Lab 2.2: Multi-Source Tools</h3>
+                        <p>Connecting multiple data sources at once:</p>
+                        <ul>
+                            <li>Demo J: Two MCP servers</li>
+                            <li>Demo K: Built-in Glob/Grep/Read tools</li>
+                            <li>Demo L: Surgical code exploration</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><strong>Real-world scaling</strong> — pulling from databases, docs, and code.</p>
+                    </div>
+                    <div class="card">
+                        <h3><span class="card-icon">📦</span>What is MCP?</h3>
+                        <p>The Model Context Protocol — a standard for wrapping tools so Claude can call them:</p>
+                        <ul>
+                            <li>Small Python programs</li>
+                            <li>Expose named tools with descriptions</li>
+                            <li>Return structured results</li>
+                            <li>Claude Code auto-discovers them</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><strong>The delivery standard</strong> — not a toy simulator.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY Section -->
+            <section>
+                <h2>💡 WHY This Matters</h2>
+                <div class="three-column">
+                    <div class="card" style="background: linear-gradient(135deg, #ffcccc 0%, #ff9999 100%); border-color: #e74c3c;">
+                        <h3 style="color: #c0392b;"><span class="card-icon">🎯</span>Interfaces are Everything</h3>
+                        <p style="color: #555;">The model <span class="keyword">only sees tool names and descriptions</span> when deciding which tool to call. Clear names = correct selection. Vague names = wrong tool, failed task.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #cce5ff 0%, #99c4ff 100%); border-color: #3498db;">
+                        <h3 style="color: #2874a6;"><span class="card-icon">⚠️</span>Errors Drive Recovery</h3>
+                        <p style="color: #555;">When a tool fails, the agent needs to know: <span class="keyword">is this transient (retry) or permanent (stop)?</span> Without structured errors, the agent flails or gives up on fixable problems.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #d4ffcc 0%, #99ff99 100%); border-color: #27ae60;">
+                        <h3 style="color: #1e8449;"><span class="card-icon">🛡️</span>Scope Prevents Mistakes</h3>
+                        <p style="color: #555;"><span class="keyword">Give an agent exactly one tool and it can't misbehave.</span> Scoping is how you make a classification step deterministic — not by hope, but by physics.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>🎓 Core Lesson:</strong> An AI agent is only as reliable as its tools. The three design choices — clear interfaces, structured errors, and tight scoping — are not optional. They live in the code you author (MCP servers, CLAUDE.md policies, subagent tool lists), and Claude Code runs the selection and retry logic. This is how you go from "kinda works" to "ships to production."
+                </div>
+            </section>
+
+            <!-- HOW Section: Architecture Diagram -->
+            <section>
+                <h2>🔗 HOW Everything Connects</h2>
+                
+                <div class="architecture-diagram">
+                    <svg viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Title -->
+                        <text x="600" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#f5576c">
+                            Module 2 Architecture: Tool Design & MCP Integration
+                        </text>
+
+                        <!-- Layer 1: User Question -->
+                        <rect x="400" y="60" width="400" height="80" rx="8" fill="#e8f4f8" stroke="#2196F3" stroke-width="3"/>
+                        <text x="600" y="95" text-anchor="middle" font-size="16" font-weight="bold" fill="#2196F3">User Question / Task</text>
+                        <text x="600" y="120" text-anchor="middle" font-size="12" fill="#666">
+                            "Where is my order?" / "Classify this sentiment"
+                        </text>
+
+                        <!-- Arrow down -->
+                        <path d="M 600 140 L 600 180" stroke="#f5576c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Layer 2: Claude Agent -->
+                        <rect x="300" y="180" width="600" height="100" rx="8" fill="#ffe8f0" stroke="#f5576c" stroke-width="3"/>
+                        <text x="600" y="210" text-anchor="middle" font-size="16" font-weight="bold" fill="#f5576c">Claude Code Agent</text>
+                        <text x="600" y="235" text-anchor="middle" font-size="12" fill="#666">
+                            Reads all available tools → Matches question to best tool
+                        </text>
+                        <text x="600" y="255" text-anchor="middle" font-size="12" fill="#666">
+                            Decision made on: Tool NAME + DESCRIPTION (nothing else!)
+                        </text>
+
+                        <!-- Arrow down -->
+                        <path d="M 600 280 L 600 320" stroke="#f5576c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Layer 3: MCP Connection Point -->
+                        <text x="600" y="315" text-anchor="middle" font-size="14" font-weight="bold" fill="#f5576c">
+                            MCP Connection (.mcp.json)
+                        </text>
+
+                        <!-- Three parallel flows -->
+                        <!-- Flow 1: Clear Interface (Demo G) -->
+                        <g>
+                            <rect x="50" y="340" width="250" height="300" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+                            <text x="175" y="370" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e7d32">Demo G: CLEAR INTERFACE</text>
+                            
+                            <text x="175" y="400" text-anchor="middle" font-size="11" fill="#555" font-weight="bold">Tool 1: search_orders</text>
+                            <text x="175" y="418" text-anchor="middle" font-size="10" fill="#666">"Find customer's</text>
+                            <text x="175" y="433" text-anchor="middle" font-size="10" fill="#666">past purchases"</text>
+
+                            <text x="175" y="465" text-anchor="middle" font-size="11" fill="#555" font-weight="bold">Tool 2: search_products</text>
+                            <text x="175" y="483" text-anchor="middle" font-size="10" fill="#666">"Browse product</text>
+                            <text x="175" y="498" text-anchor="middle" font-size="10" fill="#666">catalog"</text>
+
+                            <rect x="65" y="520" width="220" height="50" rx="4" fill="#c8e6c9" stroke="#4caf50" stroke-width="2"/>
+                            <text x="175" y="535" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">Question → Right Tool</text>
+                            <text x="175" y="555" text-anchor="middle" font-size="10" fill="#555">No guessing!</text>
+
+                            <text x="175" y="610" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Written in:</text>
+                            <text x="175" y="625" text-anchor="middle" font-size="9" fill="#2e7d32" font-weight="bold">@mcp.tool() names +</text>
+                            <text x="175" y="638" text-anchor="middle" font-size="9" fill="#2e7d32" font-weight="bold">docstrings</text>
+                        </g>
+
+                        <!-- Flow 2: Structured Errors (Demo H) -->
+                        <g>
+                            <rect x="340" y="340" width="250" height="300" rx="8" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+                            <text x="465" y="370" text-anchor="middle" font-size="14" font-weight="bold" fill="#c2185b">Demo H: ERROR HANDLING</text>
+                            
+                            <rect x="355" y="390" width="220" height="60" rx="4" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.5"/>
+                            <text x="465" y="410" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Retry (Transient)</text>
+                            <text x="465" y="427" text-anchor="middle" font-size="9" fill="#666">isError: true</text>
+                            <text x="465" y="442" text-anchor="middle" font-size="9" fill="#666">isRetryable: true (504)</text>
+
+                            <rect x="355" y="465" width="220" height="60" rx="4" fill="#ffcdd2" stroke="#e91e63" stroke-width="1.5"/>
+                            <text x="465" y="485" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Halt (Permanent)</text>
+                            <text x="465" y="502" text-anchor="middle" font-size="9" fill="#666">isError: true</text>
+                            <text x="465" y="517" text-anchor="middle" font-size="9" fill="#666">isRetryable: false (404)</text>
+
+                            <text x="465" y="570" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Written in:</text>
+                            <text x="465" y="585" text-anchor="middle" font-size="9" fill="#c2185b" font-weight="bold">Tool's return</text>
+                            <text x="465" y="600" text-anchor="middle" font-size="9" fill="#c2185b" font-weight="bold">+ CLAUDE.md policy</text>
+                        </g>
+
+                        <!-- Flow 3: Scoped Access (Demo I) -->
+                        <g>
+                            <rect x="630" y="340" width="250" height="300" rx="8" fill="#e0f2f1" stroke="#009688" stroke-width="2"/>
+                            <text x="755" y="370" text-anchor="middle" font-size="14" font-weight="bold" fill="#00695c">Demo I: SCOPED ACCESS</text>
+                            
+                            <text x="755" y="400" text-anchor="middle" font-size="11" fill="#555" font-weight="bold">Subagent: classifier</text>
+                            <text x="755" y="420" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Can access: ONE tool only</text>
+
+                            <circle cx="755" cy="470" r="40" fill="#b2dfdb" stroke="#009688" stroke-width="2"/>
+                            <text x="755" y="478" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">label</text>
+
+                            <rect x="645" y="530" width="220" height="60" rx="4" fill="#b2dfdb" stroke="#009688" stroke-width="2"/>
+                            <text x="755" y="550" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Result: Clean,</text>
+                            <text x="755" y="568" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Structured Output</text>
+
+                            <text x="755" y="620" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Written in:</text>
+                            <text x="755" y="635" text-anchor="middle" font-size="9" fill="#00695c" font-weight="bold">Subagent's</text>
+                            <text x="755" y="650" text-anchor="middle" font-size="9" fill="#00695c" font-weight="bold">tools: [...] list</text>
+                        </g>
+
+                        <!-- Flow 4: Multi-Source (Lab 2.2) -->
+                        <g>
+                            <rect x="920" y="340" width="250" height="300" rx="8" fill="#f3e5f5" stroke="#764ba2" stroke-width="2"/>
+                            <text x="1045" y="370" text-anchor="middle" font-size="14" font-weight="bold" fill="#512da8">Lab 2.2: MULTI-SOURCE</text>
+                            
+                            <rect x="935" y="390" width="220" height="45" rx="4" fill="#e1bee7" stroke="#764ba2" stroke-width="1.5"/>
+                            <text x="1045" y="410" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Database MCP</text>
+                            <text x="1045" y="425" text-anchor="middle" font-size="9" fill="#666">query_db tool</text>
+
+                            <text x="1045" y="460" text-anchor="middle" font-size="9" fill="#666">+</text>
+
+                            <rect x="935" y="475" width="220" height="45" rx="4" fill="#e1bee7" stroke="#764ba2" stroke-width="1.5"/>
+                            <text x="1045" y="495" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Docs MCP</text>
+                            <text x="1045" y="510" text-anchor="middle" font-size="9" fill="#666">search_docs tool</text>
+
+                            <text x="1045" y="545" text-anchor="middle" font-size="9" fill="#666">+</text>
+
+                            <rect x="935" y="560" width="220" height="45" rx="4" fill="#e1bee7" stroke="#764ba2" stroke-width="1.5"/>
+                            <text x="1045" y="580" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">Built-in Tools</text>
+                            <text x="1045" y="595" text-anchor="middle" font-size="9" fill="#666">Glob/Grep/Read</text>
+
+                            <text x="1045" y="630" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Wired in:</text>
+                            <text x="1045" y="645" text-anchor="middle" font-size="9" fill="#512da8" font-weight="bold">.mcp.json with</text>
+                            <text x="1045" y="660" text-anchor="middle" font-size="9" fill="#512da8" font-weight="bold">multiple servers</text>
+                        </g>
+
+                        <!-- Bottom: Supporting Infrastructure -->
+                        <text x="600" y="700" text-anchor="middle" font-size="12" font-weight="bold" fill="#f5576c">
+                            Powered by files you author:
+                        </text>
+
+                        <!-- Arrow heads -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#f5576c"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="demo-section">
+                    <h4>How the Connection Works:</h4>
+                    <ol style="margin-left: 20px; color: #555; line-height: 2;">
+                        <li><strong>User asks a question</strong> → Claude Code receives it</li>
+                        <li><strong>Claude looks at all available tools</strong> → reads from <code>.mcp.json</code> file</li>
+                        <li><strong>.mcp.json points to MCP servers</strong> → small Python programs you write</li>
+                        <li><strong>Each server defines tools</strong> → with @mcp.tool() decorators (names + docstrings)</li>
+                        <li><strong>Claude reads tool names/descriptions</strong> → that's ALL it sees to decide which tool</li>
+                        <li><strong>Claude calls the matching tool</strong> → tool runs in the MCP server process</li>
+                        <li><strong>Tool returns result</strong> → with structured fields (isError, isRetryable, content, etc.)</li>
+                        <li><strong>CLAUDE.md policy dictates next step</strong> → retry if retryable, halt if not</li>
+                        <li><strong>For scoped steps</strong> → subagent's <code>tools:</code> list restricts what's available</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Lab 2.1 Demos in Detail -->
+            <section>
+                <h2>📺 Lab 2.1 — Three Design Patterns (Demos G–I)</h2>
+
+                <div class="demo-grid">
+                    <div class="demo-box">
+                        <h5>✓ Demo G: Clear Interfaces</h5>
+                        <p><strong>What:</strong> Ask "Where is my order?" → Claude calls <code>search_orders</code>. Ask "Do you sell keyboards?" → Claude calls <code>search_products</code>.</p>
+                        <p><strong>Why:</strong> Same domain (shopping), but tool names are so clear the model picks correctly every time.</p>
+                        <p><strong>How:</strong> The only info Claude has is the tool name and docstring. Good naming → correct selection.</p>
+                        <p><strong>Failure mode:</strong> Swap to <code>search_a</code> / <code>search_b</code> and Claude guesses wrong or asks which one you mean.</p>
+                    </div>
+
+                    <div class="demo-box">
+                        <h5>✓ Demo H: Structured Errors</h5>
+                        <p><strong>What:</strong> Call get_order with a valid ID → first call times out (504) → Claude retries → succeeds. Call with missing ID → returns 404 → Claude stops.</p>
+                        <p><strong>Why:</strong> Without structured errors, Claude either retries forever or gives up. With <code>isRetryable</code> flag, it recovers from transients but stops on permanents.</p>
+                        <p><strong>How:</strong> Tool returns <code>{ isError: true, isRetryable: true/false, ... }</code>. CLAUDE.md policy says: if retryable, try again.</p>
+                        <p><strong>Principle:</strong> Transient 504 → success on retry. Permanent 404 → clean halt.</p>
+                    </div>
+
+                    <div class="demo-box">
+                        <h5>✓ Demo I: Scoped Access</h5>
+                        <p><strong>What:</strong> Route three texts to a <code>classifier</code> subagent. Each produces only a <code>label</code> tool call (sentiment + confidence). No prose, no wandering.</p>
+                        <p><strong>Why:</strong> You want clean, deterministic output. By giving the step exactly one tool, you guarantee the shape.</p>
+                        <p><strong>How:</strong> Subagent's CLAUDE.md lists <code>tools: mcp__shop__label</code>. That's the only tool it can see or call.</p>
+                        <p><strong>Principle:</strong> Scope enforces shape. The agent can't go off-script if the script is the only thing in the room.</p>
+                    </div>
+                </div>
+
+                <div class="tool-interface-box">
+                    <strong>🔑 Key Point — Demo G:</strong> The model has <strong>nothing to go on but the tool name and description</strong> when deciding which tool to call. Two well-named tools → correct every time. Two vague ones → wrong guess. Write clear interfaces; they are the contract.
+                </div>
+
+                <div class="error-flow">
+                    <strong>🔑 Key Point — Demo H:</strong> When a tool fails, return <strong>structured error fields</strong>: <code>isError</code> (did it fail?) and <code>isRetryable</code> (transient or permanent?). The policy in CLAUDE.md tells Claude what to do. Retry? Stop? This design is what makes the agent resilient.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>🔑 Key Point — Demo I:</strong> If you want a step to produce one specific output shape, <strong>give it exactly one tool</strong>. Scoping is how you make deterministic behavior — not by hoping the agent is careful, but by physics: no other tool to call.
+                </div>
+            </section>
+
+            <!-- Lab 2.2 Details -->
+            <section>
+                <h2>📺 Lab 2.2 — Multi-Source Tools (Demos J–L)</h2>
+
+                <div class="demo-grid">
+                    <div class="demo-box">
+                        <h5>✓ Demo J: Two MCP Servers</h5>
+                        <p><strong>What:</strong> <code>.mcp.json</code> wires both a database server (<code>query_db</code>) and a docs server (<code>search_docs</code>). Ask "Who is user 42?" → <code>query_db</code>. Ask "How do I configure X?" → <code>search_docs</code>.</p>
+                        <p><strong>Why:</strong> Real work pulls from multiple sources. Show the agent what's available; it picks the right source.</p>
+                        <p><strong>How:</strong> One .mcp.json file lists multiple servers; each has its own tools with distinct names.</p>
+                    </div>
+
+                    <div class="demo-box">
+                        <h5>✓ Demo K: Built-In Tools</h5>
+                        <p><strong>What:</strong> Claude Code also offers built-in file tools: Glob (find files), Grep (search), Read (open file), Edit/Write. Use these to explore a codebase surgically.</p>
+                        <p><strong>Why:</strong> Before changing code, find the exact file and read only what you need — not dump everything.</p>
+                        <p><strong>How:</strong> Use Glob to find <code>*.test.ts</code> files, then Grep to search one keyword, then Read the specific file.</p>
+                    </div>
+
+                    <div class="demo-box">
+                        <h5>✓ Demo L: Incremental Exploration</h5>
+                        <p><strong>What:</strong> Grep "validateToken" → Read <code>auth.ts</code> (not the whole repo) → Edit one line. Narrow, don't dump.</p>
+                        <p><strong>Why:</strong> Precise, fast, less risk. Dumping the whole repo and changing everywhere is slow and fragile.</p>
+                        <p><strong>How:</strong> Chain tool calls: find → read targeted → edit specific. Each tool narrows the scope.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>🔑 Principle — Lab 2.2:</strong> Real work scales by connecting multiple data sources (DB, docs, code). Good tool design means the agent can <strong>route to the right source and narrow its search</strong> — not by hard-coded routing, but by clear interfaces and structured results.
+                </div>
+            </section>
+
+            <!-- MCP Basics -->
+            <section>
+                <h2>📦 What is MCP? (Quick Reference)</h2>
+                
+                <div class="mcp-flow">
+                    <p><span class="step-number">1</span><strong>MCP Server:</strong> A small Python program that defines tools using <code>@mcp.tool()</code> decorators.</p>
+                    <p><span class="step-number">2</span><strong>Each tool is a function</strong> with a name, docstring, and return type — the name and docstring are what Claude sees.</p>
+                    <p><span class="step-number">3</span><strong>.mcp.json points to servers:</strong> Lists which Python files to run, and the server names they'll expose.</p>
+                    <p><span class="step-number">4</span><strong>Claude Code loads it:</strong> On startup, Claude Code reads .mcp.json, starts the MCP server processes, and asks you to approve them.</p>
+                    <p><span class="step-number">5</span><strong>Claude sees the tools:</strong> Once approved, the tools are available as if they were built-in. Claude calls them by name; the MCP server handles the execution.</p>
+                    <p><span class="step-number">6</span><strong>Results flow back:</strong> Tool returns data → Claude reads it → decides next step (retry, halt, or continue).</p>
+                </div>
+
+                <div class="tool-interface-box">
+                    <strong>Example Tool Definition (in Python):</strong><br><br>
+                    <code style="display: block; margin-top: 10px; white-space: pre;">@mcp.tool()
+def search_orders(customer_id: str, date_range: str = "30d") -> dict:
+    """Search for a customer's past purchases by ID or date range.
+    Use this to answer 'Where is my order?' questions."""
+    # Implementation here
+    return { "orders": [...], "status": "success" }</code>
+                    <br><br>
+                    <strong>What Claude sees:</strong> Name = <code>search_orders</code>, Description = the docstring. That's all.
+                </div>
+            </section>
+
+            <!-- File Reference -->
+            <section>
+                <h2>🗂️ Lab 2.1 File Reference</h2>
+                <table class="comparison-table">
+                    <tr>
+                        <th>File</th>
+                        <th>Purpose</th>
+                        <th>What It Contains</th>
+                    </tr>
+                    <tr>
+                        <td><code>.mcp.json</code></td>
+                        <td>Tells Claude Code which MCP servers to load</td>
+                        <td>List of servers: name + Python file to run</td>
+                    </tr>
+                    <tr>
+                        <td><code>lab2_1_mcp_server.py</code></td>
+                        <td>The actual MCP server (good design)</td>
+                        <td>@mcp.tool() functions: search_orders, search_products, get_order, label</td>
+                    </tr>
+                    <tr>
+                        <td><code>lab2_1_badnames_server.py</code></td>
+                        <td>Same tools but with vague names (for failure demo)</td>
+                        <td>search_a, search_b — shows what goes wrong with bad naming</td>
+                    </tr>
+                    <tr>
+                        <td><code>CLAUDE.md</code></td>
+                        <td>House rules for error handling and tool use</td>
+                        <td>Policy: if get_order returns isRetryable:true → retry; if false → halt</td>
+                    </tr>
+                    <tr>
+                        <td><code>.claude/agents/classifier.md</code></td>
+                        <td>Scoped subagent (Demo I)</td>
+                        <td>Has <code>tools: mcp__shop__label</code> — can only call label tool</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Connection Map -->
+            <section>
+                <h2>🔗 How Tool Design Connects to Real Work</h2>
+
+                <div class="two-column">
+                    <div class="highlight-box">
+                        <strong>🎯 Demo G — Clear Interfaces:</strong> In production, you have a customer support chatbot pulling from orders and product databases. If the tool names are vague (search_catalog / search_history), the agent mixes them up. If they're specific (search_orders / search_products), it routes correctly every time.
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>🎯 Demo H — Structured Errors:</strong> Your payment API sometimes times out. Without structured errors, the agent retries once and fails. With <code>isRetryable:true</code>, it retries automatically. A missing order (404) returns <code>isRetryable:false</code>, so it stops without wasting calls.
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>🎯 Demo I — Scoped Access:</strong> You're auto-scoring leads. You want sentiment always returned as {positive/neutral/negative, confidence 0-1}, never prose. Giving the scorer only the label tool guarantees that shape — no escape routes.
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>🎯 Lab 2.2 Multi-Source:</strong> A real system pulls from the billing database, the knowledge base, and the codebase. Each has different queries. With clear tool names (query_db, search_docs, Grep), the agent routes to the right source without ambiguity.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Comparison -->
+            <section>
+                <h2>📊 Lab 2.1 vs Lab 2.2 Quick Comparison</h2>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Lab 2.1 (Mandatory)</th>
+                        <th>Lab 2.2 (Optional)</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Focus</strong></td>
+                        <td>Tool design principles (interfaces, errors, scope)</td>
+                        <td>Real-world scaling (multi-source, surgical exploration)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Servers</strong></td>
+                        <td>One MCP server (shop) with 4 tools</td>
+                        <td>Two MCP servers (db + docs) + built-in Glob/Grep/Read</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Demos</strong></td>
+                        <td>G, H, I: naming, error handling, scoping</td>
+                        <td>J, K, L: multi-source, built-ins, surgical search</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Lesson</strong></td>
+                        <td>Good tool design makes selection automatic and recovery reliable</td>
+                        <td>Real systems scale by connecting sources and narrowing searches</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Files Changed</strong></td>
+                        <td>.mcp.json (swap servers), CLAUDE.md (policy)</td>
+                        <td>.mcp.json (add servers), sample_app/ (code to explore)</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section>
+                <h2>🎓 Key Takeaways</h2>
+                <div class="three-column">
+                    <div class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #ff6f00;">
+                        <h3 style="color: #e65100;"><span class="card-icon">1️⃣</span>Interfaces Drive Selection</h3>
+                        <p style="color: #555;">The model <span class="keyword">only reads tool names and descriptions</span> to decide which tool to call. Everything else is invisible. Write clear interfaces; they are literally the only thing Claude sees.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border-color: #7b1fa2;">
+                        <h3 style="color: #512da8;"><span class="card-icon">2️⃣</span>Structured Errors Enable Recovery</h3>
+                        <p style="color: #555;"><span class="keyword">Return error fields (isError, isRetryable)</span> so Claude knows the difference between transient failures (retry) and permanent ones (halt). This turns flaky systems into resilient ones.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); border-color: #00695c;">
+                        <h3 style="color: #004d40;"><span class="card-icon">3️⃣</span>Scope Guarantees Shape</h3>
+                        <p style="color: #555;"><span class="keyword">Give a step exactly one tool</span> and it can't misbehave. Scoping is how you make deterministic output — not by hope, but by architecture. The agent can't go off-script if the script is the only thing in the room.</p>
+                    </div>
+                </div>
+
+                <div class="three-column">
+                    <div class="card" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-color: #c62828;">
+                        <h3 style="color: #b71c1c;"><span class="card-icon">4️⃣</span>MCP is the Standard</h3>
+                        <p style="color: #555;"><span class="keyword">MCP servers are not toy simulators</span> — they're the real delivery mechanism. What you build here in Python with @mcp.tool() is what you'd ship to production.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%); border-color: #283593;">
+                        <h3 style="color: #1a237e;"><span class="card-icon">5️⃣</span>Multi-Source Scales Real Work</h3>
+                        <p style="color: #555;"><span class="keyword">Connect databases, docs, code, and APIs</span> in one .mcp.json file. The agent routes to the right source using clear tool names — no hard-coded routing needed.</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%); border-color: #558b2f;">
+                        <h3 style="color: #33691e;"><span class="card-icon">6️⃣</span>Narrow, Don't Dump</h3>
+                        <p style="color: #555;">Use Glob → Grep → Read to <span class="keyword">find the exact file and read only what you need</span>. Dumping everything is slow, risky, and wastes tokens. Surgical exploration scales.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- One-Slide Summary -->
+            <section>
+                <h2>🎯 One-Slide Summary</h2>
+                <div class="highlight-box" style="background: linear-gradient(135deg, #ffe8f0 0%, #ffcccc 100%); border: 3px solid #f5576c;">
+                    <h4 style="color: #f5576c; margin-bottom: 15px;">Module 2: Tool Design & MCP Integration</h4>
+                    <p style="line-height: 2; color: #333;">
+                        <strong>WHAT:</strong> Teaching three tool design patterns — clear interfaces (so Claude picks the right tool), structured errors (so it knows when to retry vs halt), and scoped access (so a step produces deterministic output). All using real MCP servers, not toy simulators.<br><br>
+                        <strong>WHY:</strong> An AI agent is only as reliable as its tools. Vague tool names = wrong selection. No error structure = broken recovery. Unrestricted toolset = wandering behavior. All three are design choices you make once, and Claude Code enforces them.<br><br>
+                        <strong>HOW:</strong> Write MCP servers in Python with @mcp.tool() decorators. Wire them in .mcp.json. Define error policies in CLAUDE.md. Scope subagents by limiting their tool list. Everything else — selection, retry logic, dispatching — Claude Code handles.<br><br>
+                        <strong>RESULT:</strong> You ship tooling from day one that would actually work in production. No toy code; real standards.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Labs Section -->
+            <section>
+                <h2>🧪 The Two Labs</h2>
+                <div class="lab-links">
+                    <a href="#" class="lab-link-card" onclick="alert('Navigate to module2_tools_mcp/lab2_1_claude_native/ in Claude Code'); return false;">
+                        <h4>🔧 Lab 2.1 — Tool Design Patterns</h4>
+                        <p><span class="badge mandatory">MANDATORY</span></p>
+                        <p>Demos G, H, I: Interfaces, Errors, Scope</p>
+                        <p style="margin-top: 10px; font-size: 0.9em;">
+                            One MCP server · Real error handling · Scoped subagent
+                        </p>
+                    </a>
+                    <a href="#" class="lab-link-card" onclick="alert('Navigate to module2_tools_mcp/lab2_2_claude_native/ in Claude Code'); return false;">
+                        <h4>🔗 Lab 2.2 — Multi-Source Tools</h4>
+                        <p><span class="badge optional">OPTIONAL</span></p>
+                        <p>Demos J, K, L: Two servers, Built-ins, Surgical search</p>
+                        <p style="margin-top: 10px; font-size: 0.9em;">
+                            Database + Docs servers · Glob/Grep/Read · Narrow exploration
+                        </p>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <p>📖 <strong>Agentic Labs Module 2</strong> — Tool design is reliability design.</p>
+            <p>Open each lab folder in Claude Code and follow the <code>RUNBOOK.md</code> to run the demos live.</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">Lab 2.1 uses a real MCP server. Python requirements: <code>pip install -r requirements.txt</code></p>
+        </footer>
+    </div>
+
+</body>
+</html>
