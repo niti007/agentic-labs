@@ -5,6 +5,7 @@
 #
 # Requires a repository secret named ANTHROPIC_API_KEY (Settings > Secrets and variables
 # > Actions). The committed .env is NOT used by CI and must never contain a real key.
+# NOTE: triggered on every pull_request; review gate is advisory (see parse_output.py).
 name: ci-review
 
 on:
